@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost-Button</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<style>
+    body{padding: 30px;
+        background-color: #363636;
+    }
+    .btn-ghost{
+        position: absolute;
+        top: 35px;
+        left: 35%;
+        width: 30%;
+        transition: 0.2s ease all;
+        text-align: center;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+    <button type="button" class="btn-ghost btn btn-lg btn-danger">I'm a Ghost</button>
+    <button type="button" class="btn-ghost btn btn-lg btn-success">I'm a Ghost</button>
+    <button type="button" class="btn-ghost btn btn-lg btn-primary">I'm a Ghost</button>
+    
+
+<script>
+    const ghostButton = document.querySelectorAll('.btn-ghost');
+
+    function ghosthunter() {
+        const offsetLeft = Math.random() * (window.innerWidth - this.clientWidth);
+        const offsetTop  = Math.random() * (window.innerHeight - this.clientHeight);
+
+        this.style.top  = offsetTop + 'px';
+        this.style.left = offsetLeft + 'px';
+    }
+
+    ghostButton.forEach(button => button.addEventListener('mouseenter',ghosthunter));
+
+</script>
+
+</body>
+</html>
